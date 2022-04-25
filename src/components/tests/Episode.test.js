@@ -20,6 +20,11 @@ test("renders the summary test passed as prop", () => {
 
     render(<Episode episode={fakeData} />);
 expect(screen.getByText(/This is the summary/)).toBeVisible();
+expect(screen.getByText(/This is the summary/)).not.toBeNull();
+const {rerender, getByText} = render( <Episode episode={{summary: 'This is a second summary'}} />);
+rerender( <Episode episode={{summary: 'This is a second summary'}} />)
+// .rerender(<Episode episode={{summary: 'This is a second summary'}} />)
+expect(getByText('This is a second summary')).toBeVisible();
 });
 
 test("renders default image when image is not defined", () => {
