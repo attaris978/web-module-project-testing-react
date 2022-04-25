@@ -28,6 +28,6 @@ expect(getByText('This is a second summary')).toBeVisible();
 });
 
 test("renders default image when image is not defined", () => {
-    render(<Episode episode={fakeData} />);
+    render(<Episode episode={{...fakeData, image:null }} />);
     expect(screen.getByAltText("https://i.ibb.co/2FsfXqM/stranger-things.png")).toBeInTheDocument();
 });
